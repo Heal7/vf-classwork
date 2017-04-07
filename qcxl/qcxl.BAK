@@ -1,0 +1,15 @@
+parameter x
+SET TALK OFF
+SET DEFA TO f:\大二下\vfp98\qcxl
+CLOSE ALL
+SET VIEW TO sjhj.vue
+public xldh,zljf
+
+xldh=SPACE(4)
+DO FORM fm
+KEYB '{CTRL+F4}'
+MODI WIND SCREEN TITLE '汽车修理管理系统'
+CLEA
+DO qcxlcd.mpr with x
+READ EVENT
+QUIT

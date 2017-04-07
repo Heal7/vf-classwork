@@ -1,0 +1,70 @@
+*       *********************************************************
+*       *                                                         
+*       * 06/23/16             QCXLCD.MPR               09:20:39  
+*       *                                                         
+*       *********************************************************
+*       *                                                         
+*       * 作者名称                                                
+*       *                                                         
+*       * 版权所有 (C) 2016 公司名称                             
+*       * 地址                                                    
+*       * 城市,     邮编                                          
+*       * 国家                                              
+*       *                                                         
+*       * 说明:                                            
+*       * 此程序由 GENMENU 自动生成。    
+*       *                                                         
+*       *********************************************************
+
+
+*       *********************************************************
+*       *                                                         
+*       *                         设置代码                        
+*       *                                                         
+*       *********************************************************
+*
+
+CLEAR ALL
+CLEAR
+KEYBOARD '{CTRL+F4}'
+MODIFY WIND SCREEN TITLE'汽 车 修 理 管 理 系 统'
+USE qcxlcd
+
+
+*       *********************************************************
+*       *                                                         
+*       *                         菜单定义                        
+*       *                                                         
+*       *********************************************************
+*
+
+SET SYSMENU TO
+SET SYSMENU AUTOMATIC
+
+DEFINE PAD _4nz0k10mp OF _MSYSMENU PROMPT "登记" COLOR SCHEME 3
+DEFINE PAD _4nz0k10mq OF _MSYSMENU PROMPT "零件管理" COLOR SCHEME 3
+DEFINE PAD _4nz0k10mr OF _MSYSMENU PROMPT "查询" COLOR SCHEME 3
+DEFINE PAD _4nz0k10ms OF _MSYSMENU PROMPT "打印" COLOR SCHEME 3
+DEFINE PAD _4nz0k10mt OF _MSYSMENU PROMPT "退出" COLOR SCHEME 3
+ON PAD _4nz0k10mp OF _MSYSMENU ACTIVATE POPUP 登记
+ON PAD _4nz0k10mq OF _MSYSMENU ACTIVATE POPUP 零件管理
+ON PAD _4nz0k10ms OF _MSYSMENU ACTIVATE POPUP 打印
+ON SELECTION PAD _4nz0k10mt OF _MSYSMENU CLEAR EVENTS
+
+DEFINE POPUP 登记 MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF 登记 PROMPT "修车登记"
+DEFINE BAR 2 OF 登记 PROMPT "汽车修理"
+DEFINE BAR 3 OF 登记 PROMPT "修理工管理"
+ON SELECTION BAR 1 OF 登记 DO FORM xcdj
+ON SELECTION BAR 2 OF 登记 DO FORM qcxl
+
+DEFINE POPUP 零件管理 MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF 零件管理 PROMPT "零件订货计划"
+DEFINE BAR 2 OF 零件管理 PROMPT "零件入库管理"
+DEFINE BAR 3 OF 零件管理 PROMPT "零件出库管理"
+ON SELECTION BAR 1 OF 零件管理 DO FORM ljdh
+
+DEFINE POPUP 打印 MARGIN RELATIVE SHADOW COLOR SCHEME 4
+DEFINE BAR 1 OF 打印 PROMPT "发票"
+DEFINE BAR 2 OF 打印 PROMPT "修理工工资月报"
+ON SELECTION BAR 1 OF 打印 DO FORM dyfp
